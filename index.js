@@ -26,23 +26,23 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 app.set("view engine", "ejs");
 
 // GET METHOD
-app.get("/", (req, res) => {
+app.get("/a", (req, res) => {
     TodoTask.find({}, (err, tasks) => {
         res.render("todo.ejs", { todoTasks: tasks });
     });
 });
 
 // POST method
-app.post('/',async (req, res) => {
+app.post('/a',async (req, res) => {
     const todoTask = new TodoTask({
         content: req.body.content
     });
     try {
         await todoTask.save();
-        res.redirect("/");
+        res.redirect("/a");
     } catch (err) {
         console.log("fail")
-        res.redirect("/");
+        res.redirect("/a");
     }
 });
 
@@ -59,7 +59,7 @@ app
     const id = req.params.id;
     TodoTask.findByIdAndUpdate(id, { content: req.body.content }, err => {
         if (err) return res.send(500, err);
-        res.redirect("/");
+        res.redirect("/a");
     });
 });
 
@@ -68,6 +68,6 @@ app.route("/remove/:id").get((req, res) => {
     const id = req.params.id;
     TodoTask.findByIdAndRemove(id, err => {
         if (err) return res.send(500, err);
-        res.redirect("/");
+        res.redirect("/a");
     });
 });
