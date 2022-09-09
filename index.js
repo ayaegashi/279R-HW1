@@ -5,7 +5,7 @@ const express = require("express");
 // 
 const app = express();
 const dotenv = require("dotenv");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 // models
 const TodoTask = require("./models/TodoTask");

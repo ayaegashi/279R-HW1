@@ -1,14 +1,4 @@
 {
-  "dependencies": {
-    "dotenv": "^16.0.2",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "mongoose": "^6.5.5",
-    "nodemon": "^2.0.19"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.19"
-  },
   "name": "279r-hw1",
   "description": "to do app",
   "version": "1.0.0",
@@ -23,6 +13,16 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.5",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
   "bugs": {
     "url": "https://github.com/ayaegashi/279R-HW1/issues"
   },
