@@ -13,9 +13,9 @@ app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // connection to db
-mongoose.connect(process.env.PORT || process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log("Connected to db!");
-    app.listen(3000, () => console.log("Server up and running"));
+    app.listen(process.env.PORT || 3000, () => console.log("Server up and running"));
 });
 
 // view engine configuration
