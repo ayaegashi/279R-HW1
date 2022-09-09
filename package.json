@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/ayaegashi/279R-HW1/issues"
   },
+  "engines": {
+    "node": "16.17.0"
+  },
   "homepage": "https://github.com/ayaegashi/279R-HW1#readme"
 }

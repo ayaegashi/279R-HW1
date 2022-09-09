@@ -1,4 +1,8 @@
+// Express is a nodeJS module
+// The require function is provided by NodeJS. The function loads modules and gives you access to their exports.
+// We can now access express functionality through the express variable
 const express = require("express");
+// 
 const app = express();
 const dotenv = require("dotenv");
 const { default: mongoose } = require("mongoose");
