@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 
 <head>
+    <!-- Set the title of the web app to be Todo App -->
     <title>Todo App</title>
 
+    <!-- Link to stylesheet -->
     <link rel="stylesheet" href="../static/stylesheets/style.css" type="text/css">
+    <!-- Import fonts -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" 
         href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
@@ -14,19 +17,32 @@
 
 <body>
     <div class="todo-container">
+        <!-- Create header -->
         <h2>To-Do List</h2>
         <div class="todo">
+            <!-- When triggered, the form will call the POST method to create a new todo task item -->
             <form action="/" method="POST" class="todo-header">
+                <!-- Create input field -->
                 <input type="text" name="content">
+                <!-- Create submit button; class is for styling purposes in style.css -->
                 <button type="submit"><span class="fas fa-plus"></span></button>
             </form>
+            <!-- Create the todo list as an unordered list -->
             <ul class="todo-list">
+                <!-- Below is embedded Javascript -->
+                <!-- index.js passes todoTasks (from the database) to this file, which we then iterate through -->
                 <% todoTasks.forEach(details => { %>
+                    <!-- Each todoTask will be formatted as a list item -->
                     <li class="todo-list-item">
+                        <!-- Extract the "content" (as defined in the TodoTask model) from the individual todoTask, named "details" above  -->
                         <div class="todo-list-item-name"><%= details.content %></div>
+                        <!-- Create an edit button which when clicked will route the user to /edit/item_id -->
+                        <!-- As defined in index.js, this will render the content in todoEdit.ejs -->
                         <a href="/edit/<%= details._id %>" class="edit">
                             <span class="fas fa-edit"></span>
                         </a>
+                        <!-- Create a remove button, which when clicked will route the user to /remove/item_id -->
+                        <!-- The screen does not change, but as defined in index.js, this this triggers the Mongoose .findByIdAndRemove function -->
                         <a href="/remove/<%= details._id %>" class="remove">
                             <span class="fas fa-times"></span>
                         </a>

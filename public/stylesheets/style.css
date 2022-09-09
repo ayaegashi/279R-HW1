@@ -5,80 +5,96 @@
 }
 
 body {
-    background: #e27442;
+    background: rgb(175, 250, 255);
 }
 
+/* Style the container encompassing all of the items on the screen (including the header) */
 .todo-container {
-    color: white;
+    /* Set all font to dark blue */
+    color: rgb(0, 99, 165);
     position: absolute;
     top:50%;
     left: 50%;
     padding: 20px;
     width: 600px;
     transform: translate(-50%,-50%);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.506);
     border-radius: 20px;
+    /* Align items around the vertical center line */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Set the width of a todo item */
 .todo {
     width: 400px;
 }
 
+/* Style the container encompassing the header */
 .todo-container h2 {
     padding: 10px;
     font-family: 'Candal', sans-serif;
     font-size: 2em;
 }
 
+/* Style the input field */
 .todo-header input {
     width: 92%;
-    border: none;
     border-radius: 5px;
-    height: 20px;
+    height: 30px;
     font-family: 'Candal', sans-serif;
+    padding-left: 10px;
 }
 
+/* Style the green add button */
 .todo-header button {
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     padding: 5px;
+    width: 27px;
     font-family: 'Candal', sans-serif;
     background-color: rgb(51, 212, 100);
 }
 
+/* Style the container holdering all the todo items */
 .todo-container ul {
     list-style: none;
 }
 
+/* Style an individual todo task */
 .todo-list-item {
     padding: 10px;
     margin-top: 10px;
     border: none;
     border-radius: 5px;
     font-family: 'Candal', sans-serif;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgb(0, 99, 165, 0.7);
+    color: white;
     display: flex;
     flex-direction: row;
 }
 
+/* Style the todo task when editing */
 .todo-list-item form {
     width: 100%;
     display: flex;
 }
 
+/* Style the todo task input field when editing */
 .todo-list-item input {
     flex-grow: 2;
     margin-right: 20px;
     border: none;
+    /* Make it so that the text doesn't start right at the edge of the input field, but 10px to the right */
+    padding-left: 10px;
     border-radius: 5px;
     font-family: 'Candal', sans-serif;
 }
 
+/* Style the Confirm button */
 .todo-list-item button {
     color: white;
     border: none;
@@ -89,6 +105,7 @@ body {
     background-color: rgb(51, 212, 100);
 }
 
+/* Style the Cancel button */
 .todo-list-item .cancel {
     color: white;
     text-decoration: none;
@@ -105,15 +122,17 @@ body {
     flex-grow: 2;
 }
 
+/* Style the edit icon */
 .todo-list-item .edit {
-    color : rgb(143, 233, 58);
+    color : rgb(185, 255, 218);
     margin-right: 10px;
     cursor:pointer;
     text-decoration: none;
 }
 
+/* Style the remove X button */
 .todo-list-item .remove {
-    color : rgb(243, 96, 96);
+    color : rgb(255, 185, 185);
     margin-right: 5px;
     cursor:pointer;
     text-decoration: none;

@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 
 <head>
+    <!-- Set the title of the web app -->
     <title>Todo App</title>
+    <!-- Link the stylesheet to the page -->
     <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
+    <!-- Link the fonts used in the web app -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
+
+<!-- Note that most of the page is the same as in todo.ejs, with the exception of lines __ to __ -->
 <body>
     <div class="todo-container">
+        <!-- Set the header of the page; this is the same as in todo.ejs -->
         <h2>To-Do List</h2>
         <div class="todo">
+            <!-- Create a form that when submitted triggers a POST method as defined in index.js -->
+            <!-- The content received in the input field is used to create a new element in the database -->
             <form action="" method="POST" class="todo-header">
                 <input type="text" name="content">
                 <button type="submit"><span class="fas fa-plus"></span></button>
             </form>
+            <!-- Create the todo list items as an unordered list -->
             <ul class="todo-list">
+                <!-- index.js sends the todoTasks to this file which are parsed in the embedded javascript below -->
                 <% todoTasks.forEach(details => { %>
+                <!-- For each TodoTask item in the database, named "details" in the line above -->
+                <!-- if its id matches the id of the element to be edited (received from index.js as idTask) -->
                 <% if (details._id == idTask) { %>
                 <li class="todo-list-item">
+                    <!-- Create a new form that when submitted will trigger the POST method attached to the /edit route -->
                     <form action="/edit/<%= details._id %>" method="POST">
+                        <!-- Display the content of todo task in the input field. -->
                         <input type="text" value="<%= details.content %>" name="content">
                         <button type="submit">Confirm</button>
+                        <!-- If the user clicks Cancel then nothing is changed in the database and the user is routed back to the main page with "/" -->
                         <a href="/" class="cancel">Cancel</a>
                     </form>
                 </li>
                 <% } else { %>
+                <!-- If the item's id does not match the id of the item the user wants to edit, display as usual (same as in todo.ejs) -->
                 <li class="todo-list-item">
                     <div class="todo-list-item-name"><%= details.content %></div>
                     <a href="/edit/<%= details._id %>" class="edit"> <span class="fas fa-edit"></span></a>
